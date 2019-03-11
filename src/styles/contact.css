@@ -1,5 +1,5 @@
 .left-side {
-    background: url("../img/side-view.jpg"), rgba(25, 52, 94, 0.7);
+    background: url("../images/side-view.jpg"), rgba(25, 52, 94, 0.7);
     background-blend-mode: darken;
     background-size: cover;
     background-repeat: no-repeat; 
@@ -15,7 +15,8 @@
     height: 100%;
 }
 .alterra-contact {
-    margin-top: 30%; 
+    width: 100%;
+    padding-top: 30%; 
     text-align: center;
 }
 

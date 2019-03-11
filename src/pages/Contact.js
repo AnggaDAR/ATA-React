@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-// import foto from './img/foto.png';
-// import icon_location from './img/ico/ico-location.png';
-// import icon_twitter from './img/ico/ico-twitter.png';
-// import icon_instagram from './img/ico/ico-instagram.png';
-// import './css/home.css';
-// import './css/bootstrap.min.css';
+import logo_alterra from '../images/logo/logo-alterra-academy-plain@2x.png'
+import icon_user from '../images/ico/ico-user.png';
+import icon_email from '../images/ico/ico-email.png';
+import icon_phone from '../images/ico/ico-phone.png';
+import '../styles/contact.css'
 
 class Gallery extends Component {
   render() {
     return (
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-4 left-side">
+                <div class="col-lg-6 col-md-6 col-sm-0 left-side">
                     <div class="alterra-contact">
-                        <img src="assets/img/logo/logo-alterra-academy-plain@2x.png" />
+                        <img src={logo_alterra} />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-8 right-side">
@@ -27,7 +26,7 @@ class Gallery extends Component {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">
-                                        <img src="assets/img/ico/ico-user.png" />
+                                        <img src={icon_user} />
                                     </span>
                                 </div>
                                 <input type="text" class="form-control" name="username" placeholder="Name" aria-label="Username"
@@ -37,7 +36,7 @@ class Gallery extends Component {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">
-                                        <img src="assets/img/ico/ico-email.png" />
+                                        <img src={icon_email} />
                                     </span>
                                 </div>
                                 <input type="text" class="form-control" name="email" placeholder="Email" aria-label="Username"
@@ -47,7 +46,7 @@ class Gallery extends Component {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">
-                                        <img src="assets/img/ico/ico-phone.png" />
+                                        <img src={icon_phone} />
                                     </span>
                                 </div>
                                 <input type="text" class="form-control" name="phone" placeholder="081..." aria-label="Username"

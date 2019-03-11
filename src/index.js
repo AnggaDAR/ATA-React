@@ -2,22 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Header from './Header';
-import Home from './Home';
-import Gallery from './Gallery';
-import Contact from './Contact';
-import Footer from './Footer';
+import Home from './pages/Home';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
+import Article from './pages/Article';
 import * as serviceWorker from './serviceWorker';
 
 // Home
-ReactDOM.render(<Header />, document.getElementById('header'));
 ReactDOM.render(<Home />, document.getElementById('home'));
-ReactDOM.render(<Footer />, document.getElementById('footer'));
 
 // Gallery
-ReactDOM.render(<Header />, document.getElementById('header2'));
 ReactDOM.render(<Gallery />, document.getElementById('gallery'));
-ReactDOM.render(<Footer />, document.getElementById('footer2'));
+
+//Article
+ReactDOM.render(<Article />, document.getElementById('article'));
 
 //Contact
 ReactDOM.render(<Contact />, document.getElementById('contact'));

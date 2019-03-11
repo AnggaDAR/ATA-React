@@ -1,0 +1,17 @@
+footer {
+    background: #19345E;
+    color: white;
+    padding: 15px;
+}
+
+footer .container {
+    padding: 25px;
+}
+
+.footer-image {
+    padding-bottom: 15px;
+}
+
+/* .social-media {
+    padding: 10px;
+} */
