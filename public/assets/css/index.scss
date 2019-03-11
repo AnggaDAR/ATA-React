@@ -1,0 +1,121 @@
+$primary: #19345E;
+$secondary: #F47522;
+
+%navlink {
+    text-decoration: none;
+    font-weight: bold;
+}
+@mixin textalign($align) {
+    text-align: $align;
+}
+li {
+    margin: 20px;
+}
+a {
+    @extend %navlink;
+    color: $primary;
+}
+a:hover {
+    @extend %navlink;
+    color: $secondary;
+}
+a.active {
+    @extend %navlink;
+    color: $secondary;
+}
+header {
+    margin: 0;
+    padding: 20px 0px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5)
+}
+.logo {
+    @include textalign(center);
+}
+footer {
+    background: $primary;
+    color: white;
+    padding: 15px;
+    .container {
+        padding: 25px;
+    }
+}
+.footer-image {
+    padding-bottom: 15px;
+}
+.social-media {
+    padding: 10px;
+}
+
+#foto{
+    margin:0 auto;
+    display: table;
+    $size : 200px;
+    width: $size;
+    height: $size;
+    border-radius: ($size / ($size * 2)) * 100%;
+}
+
+.btn-primary{
+    background: $secondary; 
+    margin: 10px 10px 50px 10px;
+    border-color: $secondary;
+    @include textalign(center);
+}
+
+@media only screen and (max-width:767px) {
+    .nav-logo {
+        @include textalign(center);
+    }
+}
+.header-profile{
+    background: url("../img/img-header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include textalign(center);
+    padding: 20px;
+}
+.nama{
+    color: white;
+    @include textalign(center);
+    margin: 10px;
+}
+#icon{
+    width: 15px;
+}
+.button{
+    margin:0 auto;
+    display: table;
+}
+article{
+    margin: 75px;
+    border: 1022x 358px;
+    border-bottom-color: beige;
+    border-style: outset;
+    padding: 10px 0px 100px 0px;
+}
+.aboutme{
+    margin: 0px 0px 0px 15px;
+    padding: 15px 15px 15px 0px;
+}
+p{
+    padding: 0px 15px 0px 15px;
+}
+.information{
+    padding: 15px;
+}
+table.information {
+    border:1px solid #E3E3E3;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 20px;
+    td {
+        @include textalign(left);
+        padding: 8px;
+    }
+}
+      
+table.information {
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+}
