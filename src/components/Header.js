@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo_alterra from '../images/logo/logo-alterra-academy.png'
+// import logo_alterra from '../images/logo/logo-alterra-academy.png'
+import logo from '../logo.svg'
 import '../styles/header.css'
 
 class Header extends Component {
@@ -10,25 +11,31 @@ class Header extends Component {
                 <div className="row justify-content-between">
                     <div className="col-sm-12 col-md-12 col-lg-3 text-center">
                         <a href="index.html">
-                            <img src={logo_alterra} className="logo" alt="" />
-                        {/* <div class="navbar-brand">
-                            Sabarsabar
-                        </div> */}
+                            <img src={logo} className="logo" alt="" />
+                        <div class="navbar-brand">
+                            Kabarsabar
+                        </div>
                         </a>
                     </div>
-                    <div className="col-sm-12 col-md-12 col-lg-5">
+                    <div className="col-sm-12 col-md-12 col-lg-7">
                         <ul className="nav nav-fill">
                             <li className="nav-item">
                                 <a className="active" href="index.html">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Gallery</a>
+                                <a href="index.html">Entertainment</a>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Article</a>
+                                <a href="index.html">Health</a>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Contact</a>
+                                <a href="index.html">Science</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="index.html">Sports</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="index.html">Technology</a>
                             </li>
                         </ul>
                     </div>

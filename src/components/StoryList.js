@@ -16,7 +16,7 @@ class StoryList extends Component {
     .get(baseUrl, {
       params:{
         apiKey : apiKey,
-        language : "de",
+        language : "en",
         q : "a",
       }
     })

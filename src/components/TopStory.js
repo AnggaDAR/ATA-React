@@ -17,7 +17,7 @@ class TopStory extends Component {
         .get(headlinesUrl, {
             params: {
                 apiKey: apiKey,
-                country: "de",
+                country: "gb",
                 // q: "indonesia",
                 pageSize: 5,
             }
