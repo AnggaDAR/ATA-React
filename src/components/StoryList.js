@@ -1,27 +1,45 @@
 import React, { Component } from 'react';
-import blog_ayako from '../images/ayako.jpeg';
-import blog_alphatech from '../images/alphatech.png';
+import axios from 'axios';
+import StoryItem from './StoryItem';
 
+const baseUrl = "https://newsapi.org/v2/everything"
+const apiKey = "1656f1c901ff4247b4beb9bee62e70db"
+ 
 class StoryList extends Component {
+  constructor(props){
+    super(props);
+    this.state = {listStory: []};
+  }
+  componentDidMount = () => {
+    const self = this;
+    axios
+    .get(baseUrl, {
+      params:{
+        apiKey : apiKey,
+        q : "indonesia",
+      }
+    })
+    .then(function(response){
+      console.log(response.data)
+      self.setState({listStory: response.data.articles});
+    })
+    .catch(function(error){
+      console.log(error)
+    })
+  }
   render() {
+    const {listStory} = this.state;
     return (
-      <div class="col-8">
-        <div class="card mb-3">
-          <img src={blog_ayako} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h5 class="card-title mx-2">Nikahi Putri Ayako, Pria dari Jepang Lepaskan gelar Rakyat Jelata</h5>
-            <p class="card-text">Pernikahan Rakyat Jelata dan Putri Ayako dilangsungkan lewat upacara tradisional kejawen</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card mb-3">
-          <img src={blog_alphatech} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h5 class="card-title mx-2">Gabung Alpha Tech Academy Sekarang!</h5>
-            <p class="card-text">Alpha Tech Academy telah meluluskan 11 mentee sebagai Software Engineer</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+      <div className="col-8">
+        {listStory.map((item, key) => {
+          const img = item.urlToImage;
+          const url = item.url;
+          const title = item.title;
+          const author = item.author;
+          const description = item.description;
+          const published_at = item.publishedAt;
+          return <StoryItem key={key} url={url} img={img} title={title} author={author} description={description} published_at={published_at} />
+        })}
       </div>
     );
   }

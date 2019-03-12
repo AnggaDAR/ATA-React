@@ -12,14 +12,14 @@ class Footer extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-9 col-7 my-2">
-                        <img className="footer-image" src={logo_alterra_plain} />
+                        <img className="footer-image" src={logo_alterra_plain} alt="" />
                         <h6> &copy; Copyright Alterra Group 2019</h6>
                     </div>
                     <div className="col-md-3 col-7 my-2">
                         <h5>Follow Us On</h5>
                         <div className="row">
                             <div className="col-2">
-                                <img className="social-media" src={icon_facebook} />
+                                <img className="social-media" src={icon_facebook} alt="" />
                             </div>
                             <div className="col-8">
                                 <span>Facebook</span><br/>
@@ -27,7 +27,7 @@ class Footer extends Component {
                         </div>
                         <div className="row">
                             <div className="col-2">
-                                <img className="social-media" src={icon_twitter} />
+                                <img className="social-media" src={icon_twitter} alt="" />
                             </div>
                             <div className="col-8">
                                 <span>Twitter</span><br/>
@@ -35,7 +35,7 @@ class Footer extends Component {
                         </div>
                         <div className="row">
                             <div className="col-2">
-                                <img className="social-media" src={icon_instagram} />
+                                <img className="social-media" src={icon_instagram} alt="" />
                             </div>
                             <div className="col-8">
                                 <span>Instagram</span><br/>
