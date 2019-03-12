@@ -8,8 +8,14 @@ import Footer from './components/Footer'
 
 class App extends Component {
   postLogout = () => {
-    localStorage.removeItem("is_login");
-    this.props.history.push("/")
+    const is_login = JSON.parse(localStorage.getItem("is_login"));
+    if (is_login === null){
+      alert("Anda belum login, silakan login dulu!")
+    } else {
+      alert("Logout berhasil!")
+      localStorage.removeItem("is_login");
+      this.props.history.push("/")
+    }
   }
   render() {
     return (
