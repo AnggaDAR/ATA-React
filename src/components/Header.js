@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import logo_alterra from '../images/logo/logo-alterra-academy.png'
-import logo from '../logo.svg'
-import '../styles/header.css'
+import logo from '../logo.svg';
+import '../styles/header.css';
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
@@ -10,32 +11,40 @@ class Header extends Component {
             <div className="container-fluid">
                 <div className="row justify-content-between">
                     <div className="col-sm-12 col-md-12 col-lg-3 text-center">
-                        <a href="index.html">
+                        <Link to="/">
                             <img src={logo} className="logo" alt="" />
-                        <div class="navbar-brand">
+                        <div className="navbar-brand">
                             Kabarsabar
                         </div>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-sm-12 col-md-12 col-lg-7">
                         <ul className="nav nav-fill">
                             <li className="nav-item">
-                                <a className="active" href="index.html">Home</a>
+                                <Link to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Entertainment</a>
+                                <Link to="/Health">Health</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Health</a>
+                                <Link to="/Science">Science</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Science</a>
+                                <Link to="/Sports">Sports</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="index.html">Sports</a>
+                                <Link to="/Technology">Technology</Link>
                             </li>
-                            <li className="nav-item">
-                                <a href="index.html">Technology</a>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <div className="dropdown-divider"></div>
+                                    <a className="dropdown-item" href="#">Something else here</a>
+                                </div>
                             </li>
                         </ul>
                     </div>

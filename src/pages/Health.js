@@ -21,15 +21,15 @@ class Article extends Component {
             listTopStory: [],
         };
     
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount(){
-        this.searchNews("a")
+        this.searchNews("Health")
     }
-    handleChange(event){
-        this.searchNews(event.target.value);
-    }
+    // handleChange(event){
+    //     this.searchNews(event.target.value);
+    // }
     searchNews(value){
         console.log("val : " + value)
         const self = this;
@@ -55,6 +55,7 @@ class Article extends Component {
             params: {
                 apiKey: apiKey,
                 q: value,
+                category: "Health",
                 language : "en",
                 pageSize: 5,
             }
@@ -73,9 +74,9 @@ class Article extends Component {
             <div>
                 {/* <Header/> */}
                 <section className="article m-5">
-                    <div className="row justify-content-end">
+                    {/* <div className="row justify-content-end">
                         <Search handleChange = {this.handleChange}/>
-                    </div>
+                    </div> */}
                     <div className="row">
                         <TopStory listTopStory = {this.state.listTopStory} />
                         <StoryList listStory = {this.state.listStory} />
