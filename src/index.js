@@ -5,7 +5,7 @@ import './index.css';
 // import Home from './pages/Home';
 // import Gallery from './pages/Gallery';
 // import Contact from './pages/Contact';
-import Article from './pages/Article';
+// import Article from './pages/Article';
 import AppRouter from './AppRouter';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
@@ -17,7 +17,7 @@ import {BrowserRouter} from "react-router-dom";
 // ReactDOM.render(<Gallery />, document.getElementById('gallery'));
 
 //Article
-ReactDOM.render(<Article />, document.getElementById('root'));
+// ReactDOM.render(<Article />, document.getElementById('root'));
 
 //Contact
 // ReactDOM.render(<Contact />, document.getElementById('contact'));

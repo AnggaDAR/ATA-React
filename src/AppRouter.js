@@ -7,10 +7,14 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 class App extends Component {
+  postLogout = () => {
+    localStorage.removeItem("is_login");
+    this.props.history.push("/")
+  }
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header postLogout={this.postLogout}/>
         <MainRoute/>
         <Footer/>
       </div>

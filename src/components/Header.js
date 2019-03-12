@@ -18,33 +18,35 @@ class Header extends Component {
                         </div>
                         </Link>
                     </div>
-                    <div className="col-sm-12 col-md-12 col-lg-7">
+                    <div className="col-sm-12 col-md-12 col-lg-6">
                         <ul className="nav nav-fill">
                             <li className="nav-item">
                                 <Link to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Health">Health</Link>
+                                <Link to="/health">Health</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Science">Science</Link>
+                                <Link to="/science">Science</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Sports">Sports</Link>
+                                <Link to="/sports">Sports</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/Technology">Technology</Link>
+                                <Link to="/technology">Technology</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="col-sm-12 col-md-12 col-lg-3">
+                        <ul className="nav nav-fill">
+                            <li className="nav-item dropdown">
+                                <Link to="/profile">Profile</Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
+                                <Link to="/login">Login</Link>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link to="/login" onClick={() => this.props.postLogout()}>Logout</Link>
                             </li>
                         </ul>
                     </div>

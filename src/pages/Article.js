@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom'
 
 // import Header from "../components/Header"
 // import Footer from "../components/Footer"
@@ -24,6 +25,7 @@ class Article extends Component {
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     componentDidMount(){
         this.searchNews("a")
     }
@@ -69,21 +71,28 @@ class Article extends Component {
     }
 
     render() {
-        return (
-            <div>
-                {/* <Header/> */}
-                <section className="article m-5">
-                    <div className="row justify-content-end">
-                        <Search handleChange = {this.handleChange}/>
-                    </div>
-                    <div className="row">
-                        <TopStory listTopStory = {this.state.listTopStory} />
-                        <StoryList listStory = {this.state.listStory} />
-                    </div>
-                </section>
-                {/* <Footer/> */}
-            </div>
-        );
+        const is_login = JSON.parse(localStorage.getItem("is_login"));
+
+        if(is_login === null){
+            alert("Anda belum login, silakan login dulu!")
+            return <Redirect to={{pathname: "/login"}} />
+        } else {
+            return (
+                <div>
+                    {/* <Header/> */}
+                    <section className="article m-5">
+                        <div className="row justify-content-end">
+                            <Search handleChange = {this.handleChange}/>
+                        </div>
+                        <div className="row">
+                            <TopStory listTopStory = {this.state.listTopStory} />
+                            <StoryList listStory = {this.state.listStory} />
+                        </div>
+                    </section>
+                    {/* <Footer/> */}
+                </div>
+            );
+        }
     }
 }
 
