@@ -5,22 +5,23 @@ import { withRouter } from "react-router-dom";
 // import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { connect } from "unistore/react"
+import { actions } from './store';
 
 class App extends Component {
-  postLogout = () => {
-    const is_login = JSON.parse(localStorage.getItem("is_login"));
-    if (is_login === null){
-      alert("Anda belum login, silakan login dulu!")
-    } else {
-      alert("Logout berhasil!")
-      localStorage.removeItem("is_login");
-      this.props.history.push("/")
-    }
+  doLogout = () => {
+    this.props.postLogout().then(
+      () => {
+          console.log(this.props);
+          alert("Logout berhasil!")
+          this.props.history.push("/login")
+      }
+    ) 
   }
   render() {
     return (
       <div className="App">
-        <Header postLogout={this.postLogout}/>
+        <Header doLogout={this.doLogout}/>
         <MainRoute/>
         <Footer/>
       </div>
@@ -28,4 +29,5 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
+// export default connect("is_login",actions)(withRouter(App));

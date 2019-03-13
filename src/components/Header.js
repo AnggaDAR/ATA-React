@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../styles/header.css';
 import { Link } from "react-router-dom";
+// import { connect } from "unistore/react"
+// import { actions } from "../store"
 
 class Header extends Component {
   render() {
     return (
-        <header className="m-0 p-3 shadow-lg">
+        <header className="m-0 p-3 shadow-lg sticky-top bg-white">
             <div className="container-fluid">
                 <div className="row justify-content-between">
                     <div className="col-sm-12 col-md-12 col-lg-3 text-center">
@@ -46,7 +48,7 @@ class Header extends Component {
                                 <Link to="/login">Login</Link>
                             </li>
                             <li className="nav-item dropdown">
-                                <Link to="/login" onClick={() => this.props.postLogout()}>Logout</Link>
+                                <Link to="#" onClick={() => this.props.doLogout()}>Logout</Link>
                             </li>
                         </ul>
                     </div>
@@ -58,3 +60,4 @@ class Header extends Component {
 }
 
 export default Header;
+// export default connect("is_login", actions)(Header)

@@ -1,44 +1,24 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import {withRouter} from "react-router-dom";
+import { connect } from "unistore/react"
+import { actions } from "../store"
 
 class Login extends Component{
-    state = { username: "", password: ""};
-    changeInput = e => {
-        this.setState({[e.target.name]: e.target.value});
-    };
-    postLogin = () =>{
-        const {username, password} = this.state;
-        // const data = {
-        //     username: username,
-        //     password: password,
-        // };
-        const self = this;
-        // axios
-        // .post("https://atareact.free.beeceptor.com/auth", data)
-        // .then(function(response){
-        //     console.log(response.data);
-        //     if (response.data.hasOwnProperty("api_key")){
-        //         localStorage.setItem("api_key", response.data.api_key);
-        //         localStorage.setItem("is_login", true);
-        //         localStorage.setItem("full_name", response.data.full_name);
-        //         localStorage.setItem("email", response.data.email);
-        //         self.props.history.push("/profile")
-        //     }
-        // })
-        // .catch(function(error){
-        //     console.log(error)
-        // });
-        localStorage.setItem("api_key", "abcd");
-        localStorage.setItem("is_login", true);
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
-        localStorage.setItem("full_name", "Angga Dwi");
-        localStorage.setItem("email", "angga@alphatech.id");
-        self.props.history.push("/profile")
+    // state = { username: "", password: ""};
+    // changeInput = e => {
+    //     this.setState({[e.target.name]: e.target.value});
+    // };
+    doLogin = () =>{
+        this.props.postLogin().then(
+            () => {
+                console.log("sip"+this);
+                this.props.history.push("/profile")
+            }
+        ) 
     }
     render(){
-        console.log("state ", this.state);
+        console.log("login props: ", this.props);
         return (
             <section className="row my-5 mx-0 justify-content-center">
                 <form onSubmit={e => e.preventDefault()} className="col-4">
@@ -49,7 +29,7 @@ class Login extends Component{
                             type="text"
                             name="username"
                             placeholder="Username"
-                            onChange={e => this.changeInput(e)}
+                            onChange={e => this.props.setField(e)}
                         />    
                     </div>                
                     <div>
@@ -58,10 +38,10 @@ class Login extends Component{
                             type="password"
                             name="password"
                             placeholder="Password"
-                            onChange={e => this.changeInput(e)}
+                            onChange={e => this.props.setField(e)}
                         />    
                     </div> 
-                    <button onClick={() => this.postLogin()}>Login</button>
+                    <button onClick={() => this.doLogin()}>Login</button>
                     <button type="reset">Reset</button>
                 </form>
             </section>
@@ -69,4 +49,4 @@ class Login extends Component{
     }
 }
 
-export default withRouter(Login)
+export default connect("username,password",actions) (withRouter(Login));

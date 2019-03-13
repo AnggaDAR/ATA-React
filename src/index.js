@@ -6,6 +6,8 @@ import './index.css';
 // import Gallery from './pages/Gallery';
 // import Contact from './pages/Contact';
 // import Article from './pages/Article';
+import {Provider} from "unistore/react";
+import {store} from "./store";
 import AppRouter from './AppRouter';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
@@ -25,10 +27,12 @@ import {BrowserRouter} from "react-router-dom";
 const rootEl = document.getElementById("root");
 const render = Component =>
     ReactDOM.render(
-        <BrowserRouter>
-            <Component/>
-        </BrowserRouter>,
-        rootEl
+        <Provider store={store}>
+            <BrowserRouter>
+                <Component/>
+            </BrowserRouter>
+        </Provider>
+        , rootEl
     )
 
 render(AppRouter);

@@ -7,6 +7,9 @@ import {Redirect} from 'react-router-dom'
 import TopStory from "../components/TopStory"
 import StoryList from "../components/StoryList"
 import Search from "../components/Search"
+import { connect } from "unistore/react"
+import { actions } from "../store"
+
 // import '../styles/gallery.css'
 
 const baseUrl = "https://newsapi.org/v2/"
@@ -17,63 +20,27 @@ const allArticleUrl = baseUrl + "everything"
 class Article extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            listStory: [],
-            listTopStory: [],
-        };
+        // this.state = {
+        //     listStory: [],
+        //     listTopStory: [],
+        // };
     
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
-        this.searchNews("a")
+        this.props.searchNews("a")
     }
     handleChange(event){
-        this.searchNews(event.target.value);
+        this.props.searchNews(event.target.value);
     }
-    searchNews(value){
-        console.log("val : " + value)
-        const self = this;
-        // For All Article
-        axios
-        .get(allArticleUrl, {
-        params:{
-            apiKey : apiKey,
-            // language : "en",
-            q : value,
-        }
-        })
-        .then(function(response){
-        console.log(response.data)
-        self.setState({listStory: response.data.articles});
-        })
-        .catch(function(error){
-        console.log(error)
-        })
-        // For Top Headlines
-        axios
-        .get(headlinesUrl, {
-            params: {
-                apiKey: apiKey,
-                q: value,
-                language : "en",
-                pageSize: 5,
-            }
-        })
-        .then(function(response){
-            console.log(response.data)
-            self.setState({listTopStory: response.data.articles})
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
-
+    
+    
     render() {
-        const is_login = JSON.parse(localStorage.getItem("is_login"));
+        // const isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
-        if(is_login === null){
+        if(!this.props.isLogin){
             alert("Anda belum login, silakan login dulu!")
             return <Redirect to={{pathname: "/login"}} />
         } else {
@@ -85,8 +52,8 @@ class Article extends Component {
                             <Search handleChange = {this.handleChange}/>
                         </div>
                         <div className="row">
-                            <TopStory listTopStory = {this.state.listTopStory} />
-                            <StoryList listStory = {this.state.listStory} />
+                            <TopStory listTopStory = {this.props.listTopStory} />
+                            <StoryList listStory = {this.props.listStory} />
                         </div>
                     </section>
                     {/* <Footer/> */}
@@ -96,4 +63,5 @@ class Article extends Component {
     }
 }
 
-export default Article;
+// export default Article;
+export default connect("isLogin,listTopStory,listStory",actions)(Article);

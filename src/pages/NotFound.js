@@ -4,9 +4,6 @@ import { Redirect } from "react-router-dom"
 
 const NotFound = props => {
     const is_login = JSON.parse(localStorage.getItem("is_login"));
-    const email = localStorage.getItem("email")
-    const password = localStorage.getItem("password")
-    const username = localStorage.getItem("username")
     console.log("is_login", is_login);
 
     if(is_login === null){

@@ -5,7 +5,7 @@ class Search extends Component {
   render() {
     return (
       <div className="col-3 my-2">
-        <input className="form-control" onChange={this.props.handleChange} type="search" placeholder="Search" />
+        <input className="form-control" name="search" onChange={this.props.handleChange} type="search" placeholder="Search" />
       </div>
     );
   }
