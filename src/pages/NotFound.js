@@ -1,0 +1,26 @@
+import React from 'react';
+import { Redirect } from "react-router-dom"
+// import {withRouter} from "react-router-dom";
+
+const NotFound = props => {
+    const is_login = JSON.parse(localStorage.getItem("is_login"));
+    const email = localStorage.getItem("email")
+    const password = localStorage.getItem("password")
+    const username = localStorage.getItem("username")
+    console.log("is_login", is_login);
+
+    if(is_login === null){
+        alert("Anda belum login, silakan login dulu!")
+        return <Redirect to={{pathname: "/login"}} />
+    } else {
+        return (
+            <section className="row my-5 mx-0 justify-content-center">
+                <div className="col-12">
+                    <h1 className="text-center">Oops, Page Not Found</h1>
+                </div>
+            </section>
+        );
+    }
+}
+
+export default NotFound

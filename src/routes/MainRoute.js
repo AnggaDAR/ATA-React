@@ -8,6 +8,7 @@ import Sports from "../pages/Sports"
 import Technology from "../pages/Technology"
 import Login from "../pages/Login"
 import Profile from "../pages/Profile";
+import NotFound from "../pages/NotFound";
 
 const MainRoute = () => {
     return (
@@ -19,7 +20,7 @@ const MainRoute = () => {
             <Route exact path="/technology" component = {Technology}/>
             <Route exact path="/profile" component = {Profile}/>
             <Route exact path="/login" component = {Login}/>
-            {/* <Route exact path="/logout" component = {Technology}/> */}
+            <Route component = {NotFound}/>
         </Switch>
     )
 }
